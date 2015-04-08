@@ -78,7 +78,7 @@ namespace Vigenere
         /// <param name="keyText">Ключевое слово</param>
         public void SetKey(string keyText)
         {
-            if (keyText.Length < 3) throw new EmptyKeyException();
+            if (string.IsNullOrWhiteSpace(keyText)) throw new EmptyKeyException();
             _keyText = keyText;
             _i = 0;
         }

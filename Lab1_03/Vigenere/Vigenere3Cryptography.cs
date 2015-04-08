@@ -57,7 +57,7 @@
         /// <param name="keyText3">Ключ шифратора #3</param>
         private void SplitKey(string keyText, out string keyText1, out string keyText2, out string keyText3)
         {
-            if (keyText.Length == 0) throw new VigenereCryptography.EmptyKeyException();
+            if (string.IsNullOrWhiteSpace(keyText)) throw new VigenereCryptography.EmptyKeyException();
             if (keyText.Length < 3)
             {
                 keyText1 = keyText;
