@@ -54,8 +54,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Trithemius\Trithemius.csproj">
+    <ProjectReference Include="..\..\Lab1_03\Vigenere\Vigenere.csproj">
       <Project>{032ef90c-eb27-480f-b9b0-5cf64d675eab}</Project>
+      <Name>Vigenere</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trithemius\Trithemius.csproj">
+      <Project>{364C419E-841E-4B77-A9F0-50691DD22035}</Project>
       <Name>Trithemius</Name>
     </ProjectReference>
   </ItemGroup>

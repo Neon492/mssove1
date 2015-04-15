@@ -54,8 +54,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Route\Route.csproj">
+    <ProjectReference Include="..\..\Lab1_03\Vigenere\Vigenere.csproj">
       <Project>{032ef90c-eb27-480f-b9b0-5cf64d675eab}</Project>
+      <Name>Vigenere</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Route\Route.csproj">
+      <Project>{218D6031-66F6-4F41-B65E-224D7273194A}</Project>
       <Name>Route</Name>
     </ProjectReference>
   </ItemGroup>

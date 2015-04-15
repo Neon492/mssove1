@@ -54,8 +54,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Vertical\Vertical.csproj">
+    <ProjectReference Include="..\..\Lab1_03\Vigenere\Vigenere.csproj">
       <Project>{032ef90c-eb27-480f-b9b0-5cf64d675eab}</Project>
+      <Name>Vigenere</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vertical\Vertical.csproj">
+      <Project>{2E0D2104-B5C3-4E67-9D4A-AE9E1FB153EC}</Project>
       <Name>Vertical</Name>
     </ProjectReference>
   </ItemGroup>
