@@ -6,6 +6,18 @@ namespace Route.UnitTest
     [TestClass]
     public class UnitTest1
     {
+        private readonly string[] _keys =
+        {
+            "А все-таки она вертится!",
+            "Каштаны из огня таскать",
+            "Казанская сирота",
+            "Лучше меньше, да лучше",
+            "Ящик Пандоры",
+            "Табула раза (tabula rasa)"
+        };
+
+        private readonly Random _rnd = new Random((int) DateTime.Now.Ticks);
+
         private readonly string[] _texts =
         {
             "Так в 1923 году В. И. Ленин озаглавил свою замечательную статью о мерах, которые необходимо было принять для укрепления и улучшения советского государственного аппарата. Слова эти оказались столь многозначительными и вескими, были так удачно найдены, что скоро из простого заглавия превратились в настоящее крылатое слово со значением: качество может быть важнее количества.",
@@ -17,8 +29,6 @@ namespace Route.UnitTest
             "По древнегреческому мифу, Юпитеру (греч. Зевс) приглянулась дочь финикийского царя Европа. Юпитер превратился в быка и похитил ее. Quod licet Jovi, non licet bovi - пословица говорит о нескромной или безосновательной претензии."
         };
 
-        private readonly Random rnd = new Random((int) DateTime.Now.Ticks);
-
         [TestMethod]
         public void TestMethod1()
         {
@@ -29,7 +39,7 @@ namespace Route.UnitTest
                 var cryptography = new RouteCryptography();
                 for (int i = 0; i < 20; i++)
                 {
-                    string key = (5 + rnd.Next()%10).ToString();
+                    string key = (5 + _rnd.Next()%10).ToString();
                     string text = _texts[i%_texts.Length];
                     Console.WriteLine(@"Тест #:               " + i);
                     Console.WriteLine(@"Ключ:                 " + key);
@@ -67,9 +77,9 @@ namespace Route.UnitTest
                 {
                     string key = string.Join(":", new[]
                     {
-                        (5 + rnd.Next()%10).ToString(),
-                        (5 + rnd.Next()%10).ToString(),
-                        (5 + rnd.Next()%10).ToString()
+                        (5 + _rnd.Next()%10).ToString(),
+                        (5 + _rnd.Next()%10).ToString(),
+                        (5 + _rnd.Next()%10).ToString()
                     });
                     string text = _texts[i%_texts.Length];
                     Console.WriteLine(@"Тест #:               " + i);
@@ -88,6 +98,52 @@ namespace Route.UnitTest
             catch (RouteCryptography.WrongKeyException)
             {
                 Console.WriteLine(@"Неправильный ключ");
+                Assert.IsTrue(false);
+            }
+            catch (Exception)
+            {
+                Assert.IsTrue(false);
+            }
+        }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            try
+            {
+                Console.WriteLine(@"Модифицированный шифр маршрутной перестановки");
+                Console.WriteLine();
+                var cryptography = new ArcfourRouteCryptography();
+                for (int i = 0; i < 20; i++)
+                {
+                    string key = string.Join(":", new[]
+                    {
+                        _keys[_rnd.Next()%_keys.Length],
+                        _keys[_rnd.Next()%_keys.Length],
+                        _keys[_rnd.Next()%_keys.Length]
+                    });
+                    string text = _texts[i%_texts.Length];
+                    Console.WriteLine(@"Тест #:               " + i);
+                    Console.WriteLine(@"Ключ:                 " + key);
+                    Console.WriteLine(@"Исходный текст:       " + text);
+                    cryptography.SetKey(key);
+                    string cipher = cryptography.EncryptNext(text);
+                    Console.WriteLine(@"Шифрованный текст:    " + cipher);
+                    string plain = cryptography.DecryptNext(cipher);
+                    Console.WriteLine(@"Расшифрованный текст: " + plain);
+                    Assert.IsTrue(String.CompareOrdinal(text, cipher) != 0);
+                    Assert.IsTrue(String.CompareOrdinal(text, plain) == 0);
+                    Console.WriteLine();
+                }
+            }
+            catch (RouteCryptography.WrongKeyException)
+            {
+                Console.WriteLine(@"Неправильный ключ");
+                Assert.IsTrue(false);
+            }
+            catch (Arcfour.WrongCharException ex)
+            {
+                Console.WriteLine(@"Неправильный символ ({0})", ex.Character);
                 Assert.IsTrue(false);
             }
             catch (Exception)
