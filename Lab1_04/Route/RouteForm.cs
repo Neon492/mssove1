@@ -15,8 +15,8 @@ namespace Route
             try
             {
                 ICryptography cryptography = encryptTriple.Checked
-                    ? new Route3Cryptography()
-                    : (ICryptography) new RouteCryptography();
+                    ? new ArcfourRouteCryptography2()
+                    : (ICryptography) new ArcfourRouteCryptography();
                 cryptography.SetKey(encryptKey.Text);
                 encryptDest.Text = cryptography.EncryptNext(encryptSource.Text);
             }
@@ -31,8 +31,8 @@ namespace Route
             try
             {
                 ICryptography cryptography = decryptTriple.Checked
-                    ? new Route3Cryptography()
-                    : (ICryptography) new RouteCryptography();
+                    ? new ArcfourRouteCryptography2()
+                    : (ICryptography) new ArcfourRouteCryptography();
                 cryptography.SetKey(decryptKey.Text);
                 decryptDest.Text = cryptography.DecryptNext(decryptSource.Text);
             }

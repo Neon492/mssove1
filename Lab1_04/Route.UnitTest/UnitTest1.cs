@@ -113,7 +113,7 @@ namespace Route.UnitTest
             {
                 Console.WriteLine(@"Модифицированный шифр маршрутной перестановки");
                 Console.WriteLine();
-                var cryptography = new ArcfourRouteCryptography();
+                var cryptography = new ArcfourRouteCryptography2();
                 for (int i = 0; i < 20; i++)
                 {
                     string key = string.Join(":", new[]
@@ -132,6 +132,51 @@ namespace Route.UnitTest
                     string plain = cryptography.DecryptNext(cipher);
                     Console.WriteLine(@"Расшифрованный текст: " + plain);
                     Assert.IsTrue(String.CompareOrdinal(text, cipher) != 0);
+                    Assert.IsTrue(String.CompareOrdinal(text, plain) == 0);
+                    Console.WriteLine();
+                }
+            }
+            catch (RouteCryptography.WrongKeyException)
+            {
+                Console.WriteLine(@"Неправильный ключ");
+                Assert.IsTrue(false);
+            }
+            catch (Arcfour.WrongCharException ex)
+            {
+                Console.WriteLine(@"Неправильный символ ({0})", ex.Character);
+                Assert.IsTrue(false);
+            }
+            catch (Exception)
+            {
+                Assert.IsTrue(false);
+            }
+        }
+
+        [TestMethod]
+        public void TestMethod4()
+        {
+            try
+            {
+                Console.WriteLine(@"Шифр маршрутной перестановки");
+                Console.WriteLine();
+                var cryptography = new ArcfourRouteCryptography();
+                for (int i = 0; i < 20; i++)
+                {
+                    string key = string.Join(":", new[]
+                    {
+                        _keys[_rnd.Next()%_keys.Length],
+                        _keys[_rnd.Next()%_keys.Length]
+                    });
+                    string text = _texts[i%_texts.Length];
+                    Console.WriteLine(@"Тест #:               " + i);
+                    Console.WriteLine(@"Ключ:                 " + key);
+                    Console.WriteLine(@"Исходный текст:       " + text);
+                    cryptography.SetKey(key);
+                    string cipher = cryptography.EncryptNext(text);
+                    Console.WriteLine(@"Шифрованный текст:    " + cipher);
+                    string plain = cryptography.DecryptNext(cipher);
+                    Console.WriteLine(@"Расшифрованный текст: " + plain);
+//                    Assert.IsTrue(String.CompareOrdinal(text, cipher) != 0);
                     Assert.IsTrue(String.CompareOrdinal(text, plain) == 0);
                     Console.WriteLine();
                 }

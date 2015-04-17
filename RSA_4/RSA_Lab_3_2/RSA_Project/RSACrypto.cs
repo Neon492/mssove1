@@ -23,11 +23,16 @@ namespace RSA_Project
             return new BigInteger(buffer);
         }
 
+        private static int NumberOfTests(BigInteger x)
+        {
+            return 2 * x.ToByteArray().Length + 100; // Чем больше тестов тем меньше вероятность ошибиться
+        }
+
         private static bool IsPrimary(BigInteger x)
         {
             if (x < 2) return false; // отбрасываем отрицательные и единицу
             int len = x.ToByteArray().Length;
-            int tests = 2*len + 100; // Чем больше тестов тем меньше вероятность ошибиться
+            int tests = NumberOfTests(x); // Чем больше тестов тем меньше вероятность ошибиться
             BigInteger y = x - 1;
             for (int i = 0; i < tests; i++)
             {

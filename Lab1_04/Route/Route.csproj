@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Arcfour.cs" />
     <Compile Include="ArcfourRouteCryptography.cs" />
+    <Compile Include="ArcfourRouteCryptography2.cs" />
     <Compile Include="ICryptography.cs" />
     <Compile Include="Route3Cryptography.cs" />
     <Compile Include="RouteForm.cs">

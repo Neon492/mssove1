@@ -5,7 +5,7 @@ namespace Route
     /// <summary>
     ///     Шифр маршрутной перестановки
     /// </summary>
-    public class ArcfourRouteCryptography : ICryptography
+    public class ArcfourRouteCryptography2 : ICryptography
     {
         private const string Alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
                                         + "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -13,26 +13,31 @@ namespace Route
 
         private readonly Arcfour _arcfour1 = new Arcfour();
         private readonly Arcfour _arcfour2 = new Arcfour();
+        private readonly Arcfour _arcfour3 = new Arcfour();
 
         public void SetKey(string keyText)
         {
             string[] keys = keyText.Split(':');
-            if (keys.Length != 2) throw new RouteCryptography.WrongKeyException();
+            if (keys.Length != 3) throw new RouteCryptography.WrongKeyException();
             _arcfour1.SetKey(keys[0]);
             _arcfour2.SetKey(keys[1]);
+            _arcfour3.SetKey(keys[2]);
         }
 
         public void ClearKey()
         {
             _arcfour1.ClearKey();
             _arcfour2.ClearKey();
+            _arcfour3.ClearKey();
         }
 
         public string EncryptNext(string plainText)
         {
+            int n = Alphabet.Length;
             int len = plainText.Length;
             int[] p1 = _arcfour1.Ksa(len);
-            int[] p2 = _arcfour2.Ksa(len);
+            int[] k = _arcfour2.Prga(len);
+            int[] p2 = _arcfour3.Ksa(len);
 
             var p11 = new int[len];
             for (int i = 0; i < len; i++) p11[p1[i]] = i;
@@ -42,17 +47,28 @@ namespace Route
             string s1 = sb1.ToString();
 
             var sb2 = new StringBuilder();
-            for (int i = 0; i < len; i++) sb2.Append(s1[p2[i]]);
+            for (int i = 0; i < len; i++)
+            {
+                int index = Alphabet.IndexOf(s1[i]);
+                if (index == -1) throw new Arcfour.WrongCharException {Character = s1[i].ToString()};
+                sb2.Append(Alphabet[(k[i] + n - index)%n]);
+            }
             string s2 = sb2.ToString();
 
-            return s2;
+            var sb3 = new StringBuilder();
+            for (int i = 0; i < len; i++) sb3.Append(s2[p2[i]]);
+            string s3 = sb3.ToString();
+
+            return s3;
         }
 
         public string DecryptNext(string cipherText)
         {
+            int n = Alphabet.Length;
             int len = cipherText.Length;
             int[] p1 = _arcfour1.Ksa(len);
-            int[] p2 = _arcfour2.Ksa(len);
+            int[] k = _arcfour2.Prga(len);
+            int[] p2 = _arcfour3.Ksa(len);
 
             var p22 = new int[len];
             for (int i = 0; i < len; i++) p22[p2[i]] = i;
@@ -62,10 +78,19 @@ namespace Route
             string s1 = sb1.ToString();
 
             var sb2 = new StringBuilder();
-            for (int i = 0; i < len; i++) sb2.Append(s1[p1[i]]);
+            for (int i = 0; i < len; i++)
+            {
+                int index = Alphabet.IndexOf(s1[i]);
+                if (index == -1) throw new Arcfour.WrongCharException {Character = s1[i].ToString()};
+                sb2.Append(Alphabet[(k[i] + n - index)%n]);
+            }
             string s2 = sb2.ToString();
 
-            return s2;
+            var sb3 = new StringBuilder();
+            for (int i = 0; i < len; i++) sb3.Append(s2[p1[i]]);
+            string s3 = sb3.ToString();
+
+            return s3;
         }
     }
 }

@@ -113,6 +113,11 @@ namespace RSA_Project
             return d;
         }
 
+        private static int NumberOfTests(BigInteger x)
+        {
+            return 2 * x.ToByteArray().Length + 100; // Чем больше тестов тем меньше вероятность ошибиться
+        }
+
         private KeyValuePair<BigInteger, BigInteger> GeneratePrimesPair(int length)
         {
 //Генерирует пару простых чисел, таких что их произведение имеет ровно lengthN знаков
@@ -134,7 +139,7 @@ namespace RSA_Project
                 p = new BigInteger(bytes);
             }
             //Ищем ближайшее простое
-            while (!IsProbablePrime(p, 40))
+            while (!IsProbablePrime(p, NumberOfTests(p)))
             {
                 p += 1;
             }
@@ -154,7 +159,7 @@ namespace RSA_Project
             } while (q <= lowLimit || q >= upLimit);
             //делим с остатком на найденное  просто число
             q = q/p;
-            while (!IsProbablePrime(q, 40))
+            while (!IsProbablePrime(q, NumberOfTests(q)))
             {
                 q += 1;
             }

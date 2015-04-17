@@ -9,7 +9,7 @@ namespace RSACryptosystemProject
     {
         private static readonly Random Rnd = new Random((int) DateTime.Now.Ticks);
         private static readonly RandomNumberGenerator Rng = RandomNumberGenerator.Create();
-        private readonly int[] _fermatNumbers = { 17, 257, 65537 }; //Числа ферма
+        private readonly int[] _fermatNumbers = {17, 257, 65537}; //Числа ферма
         private BigInteger _n; //P,Q -простые числа. N - их произведение
         private BigInteger _p; //P,Q -простые числа. N - их произведение
         private BigInteger _privateKey; //откртый и закрытый ключи
@@ -43,15 +43,20 @@ namespace RSACryptosystemProject
             return new BigInteger(buffer);
         }
 
+        private static int NumberOfTests(BigInteger x)
+        {
+            return 2*x.ToByteArray().Length + 100; // Чем больше тестов тем меньше вероятность ошибиться
+        }
+
         private static bool IsPrimary(BigInteger x)
         {
             if (x < 2) return false; // отбрасываем отрицательные и единицу
             int len = x.ToByteArray().Length;
-            int tests = 2*len + 100; // Чем больше тестов тем меньше вероятность ошибиться
+            int tests = NumberOfTests(x); // Чем больше тестов тем меньше вероятность ошибиться
             BigInteger y = x - 1;
             for (int i = 0; i < tests; i++)
             {
-                BigInteger a = (Random((int)(len * Rnd.NextDouble())) % y) + 1; // берём ненулевое
+                BigInteger a = (Random((int) (len*Rnd.NextDouble()))%y) + 1; // берём ненулевое
                 // проверяем выполнение малой теоремы Ферма
                 // если простое то a^(x-1)==1 mod x
                 if (!(BigInteger.ModPow(a, y, x) - 1).IsZero) return false;

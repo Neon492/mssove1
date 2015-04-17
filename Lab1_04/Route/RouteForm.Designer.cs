@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.encryptTriple = new System.Windows.Forms.CheckBox();
             this.encrypt = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@
             this.encryptSource = new System.Windows.Forms.TextBox();
             this.encryptKey = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.decryptTriple = new System.Windows.Forms.CheckBox();
             this.decrypt = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@
             this.decryptDest = new System.Windows.Forms.TextBox();
             this.decryptSource = new System.Windows.Forms.TextBox();
             this.decryptKey = new System.Windows.Forms.TextBox();
-            this.encryptTriple = new System.Windows.Forms.CheckBox();
-            this.decryptTriple = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -80,6 +80,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Режим шифрования";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // encryptTriple
+            // 
+            this.encryptTriple.AutoSize = true;
+            this.encryptTriple.Location = new System.Drawing.Point(621, 562);
+            this.encryptTriple.Name = "encryptTriple";
+            this.encryptTriple.Size = new System.Drawing.Size(145, 24);
+            this.encryptTriple.TabIndex = 8;
+            this.encryptTriple.Text = "Модификация";
+            this.encryptTriple.UseVisualStyleBackColor = true;
             // 
             // encrypt
             // 
@@ -160,6 +170,16 @@
             this.tabPage2.Text = "Режим расшифрования";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // decryptTriple
+            // 
+            this.decryptTriple.AutoSize = true;
+            this.decryptTriple.Location = new System.Drawing.Point(618, 558);
+            this.decryptTriple.Name = "decryptTriple";
+            this.decryptTriple.Size = new System.Drawing.Size(145, 24);
+            this.decryptTriple.TabIndex = 14;
+            this.decryptTriple.Text = "Модификация";
+            this.decryptTriple.UseVisualStyleBackColor = true;
+            // 
             // decrypt
             // 
             this.decrypt.Location = new System.Drawing.Point(359, 542);
@@ -220,26 +240,6 @@
             this.decryptKey.Name = "decryptKey";
             this.decryptKey.Size = new System.Drawing.Size(773, 26);
             this.decryptKey.TabIndex = 7;
-            // 
-            // encryptTriple
-            // 
-            this.encryptTriple.AutoSize = true;
-            this.encryptTriple.Location = new System.Drawing.Point(621, 562);
-            this.encryptTriple.Name = "encryptTriple";
-            this.encryptTriple.Size = new System.Drawing.Size(202, 24);
-            this.encryptTriple.TabIndex = 8;
-            this.encryptTriple.Text = "Тройное шифрование";
-            this.encryptTriple.UseVisualStyleBackColor = true;
-            // 
-            // decryptTriple
-            // 
-            this.decryptTriple.AutoSize = true;
-            this.decryptTriple.Location = new System.Drawing.Point(618, 558);
-            this.decryptTriple.Name = "decryptTriple";
-            this.decryptTriple.Size = new System.Drawing.Size(202, 24);
-            this.decryptTriple.TabIndex = 14;
-            this.decryptTriple.Text = "Тройное шифрование";
-            this.decryptTriple.UseVisualStyleBackColor = true;
             // 
             // RouteForm
             // 
