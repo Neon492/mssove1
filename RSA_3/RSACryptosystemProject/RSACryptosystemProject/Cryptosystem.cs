@@ -34,7 +34,7 @@ namespace RSACryptosystemProject
 
         #region  Методы для генерации случайного ключа
 
-        private static BigInteger Random(int bytes)
+        public static BigInteger Random(int bytes)
         {
             if (bytes == 0) return new BigInteger(0);
             var buffer = new byte[bytes];
@@ -43,12 +43,12 @@ namespace RSACryptosystemProject
             return new BigInteger(buffer);
         }
 
-        private static int NumberOfTests(BigInteger x)
+        public static int NumberOfTests(BigInteger x)
         {
             return 2*x.ToByteArray().Length + 100; // Чем больше тестов тем меньше вероятность ошибиться
         }
 
-        private static bool IsPrimary(BigInteger x)
+        public static bool IsPrimary(BigInteger x)
         {
             if (x < 2) return false; // отбрасываем отрицательные и единицу
             int len = x.ToByteArray().Length;
@@ -67,7 +67,7 @@ namespace RSACryptosystemProject
             return true;
         }
 
-        private BigInteger GeneratePrimary(int bytes)
+        public static BigInteger GeneratePrimary(int bytes)
         {
             BigInteger x = Random(bytes) | 1; // Простые являются нечётными
             while (!IsPrimary(x)) x += 2; // Движемся вперёд пока не встретим простое
