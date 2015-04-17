@@ -2,6 +2,9 @@ using System;
 
 namespace Route
 {
+    /// <summary>
+    ///     https://ru.wikipedia.org/wiki/RC4
+    /// </summary>
     public class Arcfour
     {
         /// <summary>
@@ -17,16 +20,16 @@ namespace Route
         {
             if (string.IsNullOrWhiteSpace(_keyText)) throw new EmptyKeyException();
             int l = _keyText.Length;
-            int[] s = new int[n];
-            int[] key = new int[l];
+            var s = new int[n];
+            var key = new int[l];
             for (int i = 0; i < l; i++)
             {
                 int index = Alphabet.IndexOf(_keyText[i]);
-                if (index == -1) throw new WrongCharException() { Character = _keyText[i].ToString() };
+                if (index == -1) throw new WrongCharException {Character = _keyText[i].ToString()};
                 key[i] = index;
             }
             for (int i = 0; i < n; i++) s[i] = i;
-            for (int i = 0,j=0; i < n; i++)
+            for (int i = 0, j = 0; i < n; i++)
             {
                 j = (j + s[i] + key[i%l])%n;
                 int temp = s[i];
@@ -40,7 +43,7 @@ namespace Route
         {
             if (string.IsNullOrWhiteSpace(_keyText)) throw new EmptyKeyException();
             int l = _keyText.Length;
-            int[] k = new int[n];
+            var k = new int[n];
             int[] s = Ksa(256);
             for (int index = 0, i = 0, j = 0; index < n; index++)
             {
@@ -50,7 +53,7 @@ namespace Route
                 s[i] = s[j];
                 s[j] = temp;
                 int t = (s[i] + s[j])%l;
-                k[index]=s[t];
+                k[index] = s[t];
             }
             return k;
         }
@@ -65,6 +68,7 @@ namespace Route
         {
             _keyText = string.Empty;
         }
+
         public class EmptyKeyException : Exception
         {
         }
