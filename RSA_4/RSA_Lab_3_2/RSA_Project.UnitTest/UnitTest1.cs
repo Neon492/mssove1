@@ -2,7 +2,7 @@
 using System.Numerics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace RSACryptosystemProject.UnitTest
+namespace RSA_Project.UnitTest
 {
     [TestClass]
     public class UnitTest1
@@ -14,7 +14,7 @@ namespace RSACryptosystemProject.UnitTest
             Console.WriteLine(@"# N GeneratePairs");
             for (int decimals = 20; decimals < 50; decimals++)
             {
-                var rsa = new Cryptosystem(decimals);
+                var rsa = new RsaCrypto(decimals);
                 DateTime t = DateTime.Now;
                 for (int i = 0; i < count; i++)
                     rsa.GeneratePairs(decimals);
@@ -34,7 +34,7 @@ namespace RSACryptosystemProject.UnitTest
                 int bytes = (bits + 7)/8;
                 DateTime t = DateTime.Now;
                 for (int i = 0; i < count; i++)
-                    Cryptosystem.GeneratePrimary(bytes);
+                    RsaCrypto.GeneratePrimary(bytes);
                 var ts = new TimeSpan(DateTime.Now.Ticks - t.Ticks);
                 Console.WriteLine(@"{0} {1}", decimals, ts.TotalMilliseconds/count);
             }
@@ -53,9 +53,9 @@ namespace RSACryptosystemProject.UnitTest
                 int total = 0;
                 for (int i = 0; i < count; i++)
                 {
-                    BigInteger x = Cryptosystem.Random(bytes) | 1; // Простые являются нечётными
-                    total += Cryptosystem.NumberOfTests(x);
-                    Cryptosystem.IsPrimary(x);
+                    BigInteger x = RsaCrypto.Random(bytes) | 1; // Простые являются нечётными
+                    total += RsaCrypto.NumberOfTests(x);
+                    RsaCrypto.IsPrimary(x);
                 }
                 var ts = new TimeSpan(DateTime.Now.Ticks - t.Ticks);
                 Console.WriteLine(@"{0} {1}", decimals, ts.TotalMilliseconds / count);

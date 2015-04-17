@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CAE606B4-5E52-4B96-AEAE-1011B798A5F5}</ProjectGuid>
+    <ProjectGuid>{2E3E0DBA-F9A1-469D-B6B0-DF6ACDC2F611}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ZI_Lab_Lab_3_1.UnitTest</RootNamespace>
-    <AssemblyName>ZI_Lab_Lab_3_1.UnitTest</AssemblyName>
+    <RootNamespace>RSARsaCryptographyProject.UnitTest</RootNamespace>
+    <AssemblyName>RSARsaCryptographyProject.UnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -53,12 +53,11 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest2.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RSA_Project\ZI_Lab_Lab_3_1.csproj">
-      <Project>{95076f6e-5ccb-438b-b718-cdf4038a4bd4}</Project>
-      <Name>ZI_Lab_Lab_3_1</Name>
+    <ProjectReference Include="..\RSA_Project\RSA_Lab_3_2.csproj">
+      <Project>{fbc2e516-7593-459f-bd5c-fb6e91284996}</Project>
+      <Name>RSA_Lab_3_2</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

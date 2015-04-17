@@ -47,6 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA11_Project", "RSA_11\RSA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSACryptosystemProject.UnitTest", "RSA_3\RSACryptosystemProject\RSACryptosystemProject.UnitTest\RSACryptosystemProject.UnitTest.csproj", "{A2C6B977-039E-4091-8106-ACDE8238787C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA_Lab_3_2.UnitTest", "RSA_2\RSA_Lab_3_2\RSA_Project.UnitTest\RSA_Lab_3_2.UnitTest.csproj", "{2E3E0DBA-F9A1-469D-B6B0-DF6ACDC2F611}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3var4.UnitTest", "RSA_4\RSA_Lab_3_2\RSA_Project.UnitTest\Lab3var4.UnitTest.csproj", "{C8AC3F34-483F-4B4A-8B7A-24BE03329D56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +149,14 @@ Global
 		{A2C6B977-039E-4091-8106-ACDE8238787C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2C6B977-039E-4091-8106-ACDE8238787C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2C6B977-039E-4091-8106-ACDE8238787C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3E0DBA-F9A1-469D-B6B0-DF6ACDC2F611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3E0DBA-F9A1-469D-B6B0-DF6ACDC2F611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3E0DBA-F9A1-469D-B6B0-DF6ACDC2F611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3E0DBA-F9A1-469D-B6B0-DF6ACDC2F611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8AC3F34-483F-4B4A-8B7A-24BE03329D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8AC3F34-483F-4B4A-8B7A-24BE03329D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8AC3F34-483F-4B4A-8B7A-24BE03329D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8AC3F34-483F-4B4A-8B7A-24BE03329D56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

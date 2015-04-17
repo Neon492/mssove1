@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Numerics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using RSA_Project;
 
-namespace RSACryptosystemProject.UnitTest
+namespace ZI_Lab_Lab_3_1.UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest2
     {
         [TestMethod]
         public void TestMethod1()
         {
             const int count = 20;
-            Console.WriteLine(@"# N GeneratePairs");
-            for (int decimals = 20; decimals < 50; decimals++)
+            Console.WriteLine(@"# N GenerateKeys");
+            for (int log10N = 20; log10N < 50; log10N++)
             {
-                var rsa = new Cryptosystem(decimals);
+                var rsa = new RsaCryptography(log10N);
                 DateTime t = DateTime.Now;
                 for (int i = 0; i < count; i++)
-                    rsa.GeneratePairs(decimals);
+                    rsa.GenerateKeys(log10N);
                 var ts = new TimeSpan(DateTime.Now.Ticks - t.Ticks);
-                Console.WriteLine(@"{0} {1}", decimals, ts.TotalMilliseconds/count);
+                Console.WriteLine(@"{0} {1}", log10N, ts.TotalMilliseconds/count);
             }
         }
 
@@ -28,15 +29,15 @@ namespace RSACryptosystemProject.UnitTest
         {
             const int count = 20;
             Console.WriteLine(@"# N GeneratePrimary");
-            for (int decimals = 20; decimals < 50; decimals++)
+            for (int log10N = 20; log10N < 50; log10N++)
             {
-                var bits = (int) Math.Ceiling(decimals/Math.Log10(2));
+                var bits = (int) Math.Ceiling(log10N/Math.Log10(2));
                 int bytes = (bits + 7)/8;
                 DateTime t = DateTime.Now;
                 for (int i = 0; i < count; i++)
-                    Cryptosystem.GeneratePrimary(bytes);
+                    RsaCryptography.GeneratePrimary(bytes);
                 var ts = new TimeSpan(DateTime.Now.Ticks - t.Ticks);
-                Console.WriteLine(@"{0} {1}", decimals, ts.TotalMilliseconds/count);
+                Console.WriteLine(@"{0} {1}", log10N, ts.TotalMilliseconds/count);
             }
         }
 
@@ -45,20 +46,20 @@ namespace RSACryptosystemProject.UnitTest
         {
             const int count = 20;
             Console.WriteLine(@"# N IsPrimary");
-            for (int decimals = 20; decimals < 50; decimals++)
+            for (int log10N = 20; log10N < 50; log10N++)
             {
-                var bits = (int) Math.Ceiling(decimals/Math.Log10(2));
+                var bits = (int) Math.Ceiling(log10N/Math.Log10(2));
                 int bytes = (bits + 7)/8;
                 DateTime t = DateTime.Now;
                 int total = 0;
                 for (int i = 0; i < count; i++)
                 {
-                    BigInteger x = Cryptosystem.Random(bytes) | 1; // Простые являются нечётными
-                    total += Cryptosystem.NumberOfTests(x);
-                    Cryptosystem.IsPrimary(x);
+                    BigInteger x = RsaCryptography.Random(bytes) | 1; // Простые являются нечётными
+                    total += RsaCryptography.NumberOfTests(x);
+                    RsaCryptography.IsPrimary(x);
                 }
                 var ts = new TimeSpan(DateTime.Now.Ticks - t.Ticks);
-                Console.WriteLine(@"{0} {1}", decimals, ts.TotalMilliseconds / count);
+                Console.WriteLine(@"{0} {1}", log10N, ts.TotalMilliseconds / count);
             }
         }
     }
