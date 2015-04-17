@@ -51,6 +51,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA_Lab_3_2.UnitTest", "RSA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3var4.UnitTest", "RSA_4\RSA_Lab_3_2\RSA_Project.UnitTest\Lab3var4.UnitTest.csproj", "{C8AC3F34-483F-4B4A-8B7A-24BE03329D56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA07_Project.UnitTest", "RSA_7\RSA_Project\RSA_Project.UnitTest\RSA07_Project.UnitTest.csproj", "{0C63AC69-4E99-43D2-B1E4-0049342CE35E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA10_Project.UnitTest", "RSA_10\RSA_Project\RSA_Project.UnitTest\RSA10_Project.UnitTest.csproj", "{05035DCF-B5C4-4585-ACF1-FF3B6522AF96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA11_Project.UnitTest", "RSA_11\RSA_Project\RSA_Project.UnitTest\RSA11_Project.UnitTest.csproj", "{2F4EDEAD-EB28-402F-872E-526784CEDC02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +163,18 @@ Global
 		{C8AC3F34-483F-4B4A-8B7A-24BE03329D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8AC3F34-483F-4B4A-8B7A-24BE03329D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8AC3F34-483F-4B4A-8B7A-24BE03329D56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C63AC69-4E99-43D2-B1E4-0049342CE35E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C63AC69-4E99-43D2-B1E4-0049342CE35E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C63AC69-4E99-43D2-B1E4-0049342CE35E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C63AC69-4E99-43D2-B1E4-0049342CE35E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05035DCF-B5C4-4585-ACF1-FF3B6522AF96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05035DCF-B5C4-4585-ACF1-FF3B6522AF96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05035DCF-B5C4-4585-ACF1-FF3B6522AF96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05035DCF-B5C4-4585-ACF1-FF3B6522AF96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F4EDEAD-EB28-402F-872E-526784CEDC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F4EDEAD-EB28-402F-872E-526784CEDC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F4EDEAD-EB28-402F-872E-526784CEDC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F4EDEAD-EB28-402F-872E-526784CEDC02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

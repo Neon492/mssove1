@@ -113,12 +113,12 @@ namespace RSA_Project
             return d;
         }
 
-        private static int NumberOfTests(BigInteger x)
+        public static int NumberOfTests(BigInteger x)
         {
             return 2*x.ToByteArray().Length + 100; // Чем больше тестов тем меньше вероятность ошибиться
         }
 
-        private KeyValuePair<BigInteger, BigInteger> GeneratePrimesPair(int length)
+        public KeyValuePair<BigInteger, BigInteger> GeneratePrimesPair(int length)
         {
 //Генерирует пару простых чисел, таких что их произведение имеет ровно lengthN знаков
             var resList = new List<BigInteger>();
@@ -167,7 +167,7 @@ namespace RSA_Project
             return new KeyValuePair<BigInteger, BigInteger>(p, q); //Возвращаем пару найденных чисел
         }
 
-        private static bool IsProbablePrime(BigInteger source, int certainty)
+        public static bool IsProbablePrime(BigInteger source, int certainty)
         {
 //Вероятностный тест Миллера-Рабина для определения  простоты числа
             if (source == 2 || source == 3)
