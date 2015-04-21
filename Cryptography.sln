@@ -57,6 +57,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA10_Project.UnitTest", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA11_Project.UnitTest", "RSA_11\RSA_Project\RSA_Project.UnitTest\RSA11_Project.UnitTest.csproj", "{2F4EDEAD-EB28-402F-872E-526784CEDC02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atbash", "Lab1_09\Atbash\Atbash.csproj", "{D9D3A6BA-1E3B-40CC-9F14-6CE0FE9D2A2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atbash.UnitTest", "Lab1_09\Atbash.UnitTest\Atbash.UnitTest.csproj", "{755CE1AC-6623-4A94-9575-FA1AEB956FF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZI_Lab_Lab_3_9", "RSA_9\RSA_Project\ZI_Lab_Lab_3_9\ZI_Lab_Lab_3_9.csproj", "{9614DB6F-1447-4123-9C83-05293D933190}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZI_Lab_Lab_3_9.UnitTest", "RSA_9\RSA_Project\ZI_Lab_Lab_3_9.UnitTest\ZI_Lab_Lab_3_9.UnitTest.csproj", "{33961654-E2B0-41A2-A1F9-CCF6631F9ED5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -175,6 +183,22 @@ Global
 		{2F4EDEAD-EB28-402F-872E-526784CEDC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F4EDEAD-EB28-402F-872E-526784CEDC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F4EDEAD-EB28-402F-872E-526784CEDC02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9D3A6BA-1E3B-40CC-9F14-6CE0FE9D2A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D3A6BA-1E3B-40CC-9F14-6CE0FE9D2A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D3A6BA-1E3B-40CC-9F14-6CE0FE9D2A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D3A6BA-1E3B-40CC-9F14-6CE0FE9D2A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{755CE1AC-6623-4A94-9575-FA1AEB956FF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{755CE1AC-6623-4A94-9575-FA1AEB956FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{755CE1AC-6623-4A94-9575-FA1AEB956FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{755CE1AC-6623-4A94-9575-FA1AEB956FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9614DB6F-1447-4123-9C83-05293D933190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9614DB6F-1447-4123-9C83-05293D933190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9614DB6F-1447-4123-9C83-05293D933190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9614DB6F-1447-4123-9C83-05293D933190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33961654-E2B0-41A2-A1F9-CCF6631F9ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33961654-E2B0-41A2-A1F9-CCF6631F9ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33961654-E2B0-41A2-A1F9-CCF6631F9ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33961654-E2B0-41A2-A1F9-CCF6631F9ED5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
